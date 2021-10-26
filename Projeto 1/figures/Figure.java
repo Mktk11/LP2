@@ -7,14 +7,14 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import ivisible.IVisible;
 
-public abstract class Figure {
+public abstract class Figure implements IVisible{
     public int x,y,w,h;
     public Color preencheCor;
     public Color corBorda;
-    public abstract void paint (Graphics g);
 
-    public Figure(int x,int y,int w,int h,Color preencheCor,Color corBorda){
+    public Figure (int x,int y,int w,int h,Color preencheCor,Color corBorda){
         this.x=x;
         this.y=y;
         this.w=w;
@@ -32,14 +32,15 @@ public abstract class Figure {
     public Color contorno = new Color(255,10,10);
     public Color preenchimento = new Color(255,255,255);
 
-    public void desenharBorda(Graphics g){
+    public void desenharBorda(Graphics g,boolean focused){
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(contorno);
         g2d.drawRect(this.x-4,this.y-4,this.w+8,this.h+8);
     }
-    public void preencherFig(Graphics g){
+    public void preencherFig(Graphics g,boolean focused){
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(preenchimento);
         g2d.fillRect(this.x-4,this.y-4,this.w+8,this.h+8);
     }
+
 }
