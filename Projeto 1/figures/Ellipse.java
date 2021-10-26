@@ -5,7 +5,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Ellipse2D.Double;
 
 public class Ellipse extends Figure {
-    public Ellipse (int x, int y, int w, int h,Color corBorda, Color preencheCor ) {
+    public Ellipse (int x, int y, int w, int h,Color preencheCor, Color corBorda ) {
         super(x,y,w,h,preencheCor,corBorda);
     }
 
@@ -14,7 +14,7 @@ public class Ellipse extends Figure {
             this.w, this.h, this.x, this.y);
     }
 
-    public void paint (Graphics g) {
+    public void paint (Graphics g, boolean b) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(this.preencheCor);
         g2d.fillOval(this.x,this.y, this.w,this.h);
