@@ -12,7 +12,7 @@ public class Triangle extends Figure {
             this.x, this.y, this.w, this.h);
     }
 
-    public void paint (Graphics g) {
+    public void paint (Graphics g, boolean b) {
         Graphics2D g2d = (Graphics2D) g;
         int x1[] = {this.x, ((this.w)/2) + (this.x), (this.w) + (this.x)};
         int y1[] = {this.y + h, (this.y + h) - (this.h), this.y + h};
