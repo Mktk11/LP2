@@ -8,8 +8,9 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import ivisible.IVisible;
+import java.io.Serializable;
 
-public abstract class Figure implements IVisible{
+public abstract class Figure implements IVisible,Serializable{
     public int x,y,w,h;
     public Color preencheCor;
     public Color corBorda;
@@ -44,3 +45,4 @@ public abstract class Figure implements IVisible{
     }
 
 }
+
