@@ -35,9 +35,25 @@ class ListFrame extends JFrame {
     Color cores1[] = {Color.YELLOW, Color.MAGENTA, Color.CYAN, Color.WHITE, Color.BLACK, Color.GRAY, Color.LIGHT_GRAY, Color.DARK_GRAY,Color.RED, Color.GREEN, Color.BLUE, Color.PINK, Color.ORANGE};
 
     ListFrame () {
+        try{
+            FileInputStream f = new FileInputStream("proj.bin");
+            ObjectInputStream o = new ObjectInputStream(f);
+            this.figs = (ArrayList<Figure>) o.readObject();
+            o.close();
+        }
+        catch(Exception x){
+            System.out.println("Erro!!!");
+        }
         this.addWindowListener (
             new WindowAdapter() {
                 public void windowClosing (WindowEvent e) {
+                    try{
+                        FileOutputStream f = new FileOutputStream("proj.bin");
+                        ObjectOutputStream o = new ObjectOutputStream(f);
+                        o.writeObject(figs);
+                        o.flush();
+                        o.close();
+                    }catch (Exception x){}
                     System.exit(0);
                 }
             }
@@ -46,13 +62,13 @@ class ListFrame extends JFrame {
         buts.add(new Button(1,new Ellipse(40,50,10,10,Color.BLACK,Color.BLACK)));
         buts.add(new Button(2,new Triangle(20,70,10,10,Color.BLACK,Color.BLACK)));
         buts.add(new Button(3,new Hex(40,70,10,10,Color.BLACK,Color.BLACK)));
-        buts.add(new Button(4,new Rect(20,90,10,10,Color.YELLOW,Color.YELLOW)));
-        buts.add(new Button(5,new Rect(40,90,10,10,Color.BLUE,Color.BLUE)));
-        buts.add(new Button(6,new Rect(20,110,10,10,Color.RED,Color.RED)));
-        buts.add(new Button(7,new Rect(40,110,10,10,Color.GREEN,Color.GREEN)));
-        buts.add(new Button(8,new Rect(20,130,10,10,Color.PINK,Color.PINK)));
-        buts.add(new Button(9,new Rect(40,130,10,10,Color.GRAY,Color.GRAY)));
-        buts.add(new Button(10,new Rect(20,150,10,10,Color.ORANGE,Color.ORANGE)));
+        buts.add(new Button(4,new Rect(20,90,10,10,Color.YELLOW,Color.BLACK)));
+        buts.add(new Button(5,new Rect(40,90,10,10,Color.BLUE,Color.BLACK)));
+        buts.add(new Button(6,new Rect(20,110,10,10,Color.RED,Color.BLACK)));
+        buts.add(new Button(7,new Rect(40,110,10,10,Color.GREEN,Color.BLACK)));
+        buts.add(new Button(8,new Rect(20,130,10,10,Color.PINK,Color.BLACK)));
+        buts.add(new Button(9,new Rect(40,130,10,10,Color.GRAY,Color.BLACK)));
+        buts.add(new Button(10,new Rect(20,150,10,10,Color.ORANGE,Color.BLACK)));
         buts.add(new Button(11,new Rect(40,150,10,10,Color.BLACK,Color.BLACK)));
         this.addMouseListener(
             new MouseAdapter(){
@@ -345,3 +361,5 @@ class ListFrame extends JFrame {
 
     
 }
+
+
