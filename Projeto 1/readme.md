@@ -1,5 +1,5 @@
 # Manual de instruções
-# Projeto 1
+# Projeto 
 
 <p>1)A figura é adicionada onde a seta do mouse está posicionada
 <p>2)A figura só pode ser movimentada quando ela está com o foco tanto com o teclado quanto com o mouse
@@ -19,6 +19,6 @@
 <p>-A tecla 'a' aumenta a altura e a largura da figura que está em foco
 <p>-A tecla 'd' diminui a altura e a largura da figura que está em foco
 <p>-A tecla 'delete' remove a figura que está em foco
-
+<p>-Quando o botão de cores é clicado e logo depois a figura é clicada há alteração na cor de preenchimento da figura
   
   
